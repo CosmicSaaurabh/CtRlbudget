@@ -23,12 +23,19 @@
          </li>
        </ul>
        <form class="d-flex">
-       <button class="btn btn-outline-success ml-2" type="submit">SignUp</button>
-         <button class="btn btn-outline-success mx-2" type="submit">Login</button>
+       <button type="button" class="btn btn-outline-success mx-2" data-bs-toggle="modal" data-bs-target="#signupModal">
+         SignUp
+         </button>
+       <button type="button" class="btn btn-outline-success mx-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+         Login
+        </button>
+    
        </form>
      </div>
    </div>
  </nav>';
+ include 'partials/_login.php';
+ include 'partials/_signup.php';
 
     
 
