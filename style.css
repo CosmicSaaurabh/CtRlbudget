@@ -1,6 +1,10 @@
 .bgimage{
     background-image: url(./img/landingpage.jpg)
 }
+/* .bgthread{
+    
+     height : 650px;
+} */
 #content{
      height : 300px;
      width : 400px;

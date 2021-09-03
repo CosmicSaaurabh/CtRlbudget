@@ -10,6 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+    <style> 
+     .bgthread{
+         background-color : rgba(0, 255, 191, 0.22);
+         min-height : 650px;
+     }
+                       
+   </style>
   </head>
   <body>
              <?php include 'partials/_dbconnect.php' ?>
@@ -25,33 +32,69 @@
              
              ?>
 
-              <div class="container-fluid row p-0 m-0" style = "background-color : rgba(0, 255, 191, 0.22)">
-               <?php 
-                   $id = $_GET['userid'];
+              <div class="container-fluid bgthread  m-0 " >
+                 
+              <div class="row">
+                <?php 
+                   $id = $_SESSION['userid'];
                 //    echo $id;
                 //    echo '<br>';
                    $sql = "SELECT * FROM `budgets` WHERE userid = '$id'";
                    $result = mysqli_query($conn,$sql);
                    $numrows = mysqli_num_rows($result);
                 //    echo $numrows;
-                   if($numrows > 0){
-                        echo 'you have previous items';
-                   }else{
-                       include 'addnewbudget.php';
-                       echo '<div class = "col-md-2 m-3">
-                       <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
-                       <div class="card-header"><h4>Start a new budget</h4></div>
-                       <div class="card-body">
-                       <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#nbudgetModal">
-                       Add new budget
-                       </button>
-                       </div>
-                       </div>';
-                   }
+                include 'addnewbudget.php';
+                echo '<div class = "col-lg-4x my-3">
+                <div class="card text-dark bg-warning" style="max-width: 18rem;">
+                <div class="card-header"><h4>Start a new budget</h4></div>
+                <div class="card-body">
+                <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#nbudgetModal">
+                Add new budget
+                </button>
+                </div>
+                </div>
+                </div>';
+                   while($row = mysqli_fetch_assoc($result)){
+                       $bname = $row['budgetname'];
+                       $bname = strtoupper($bname);
+                       $tamount = $row['amount'];
+                       $nperson = $row['nperson'];
+                       $remm = $row['remain'];
+                    //    echo $remm;
+                       echo '<div class = "col-lg-4 my-3">
 
+                       <div class="card bg-secondary text-white" style="width: 18rem;">
+
+                       <div class="card-body">
+                         <h5 class="card-title">'.$bname.'</h5>
+                       </div>
+
+                       <ul class="list-group list-group-flush">
+                         <li class="list-group-item"><b>Total Person: </b>'.$nperson.'</li>
+                         <li class="list-group-item"><b>Total Amount: </b>'.$tamount.'</li>
+                         <li class="list-group-item"><b>Expended: </b>'.$remm.'</li>
+                       </ul>
+
+                       <div class="card-body">
+                         <a href="#" class="card-link"><button class = "btn btn-success">Update</button></a>
+                         
+                       </div>
+
+                     </div>
+                     
+
+                     </div>';
+                   }
+                   
+                   
 
                 
                 ?>
+                </div>
+
+
+                
+               
                 
                 <!-- <div class="col-md-4">
                       <h1>hello</h1>

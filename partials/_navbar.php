@@ -24,7 +24,7 @@
        </ul>';
        if(isset($_SESSION['login']) and $_SESSION['login'] == 'true'){
             echo'<form class="d-flex">
-            <button type="button" class="btn btn-success mx-2">'.$_SESSION['username'].'</button>
+            <a href = "./thread.php"> <button type="button" class="btn btn-success mx-2">My Budgets</button></a>
             <a href = "partials/_logout.php">  <button type="button" class="btn btn-outline-success mx-2">
               Log out
              </button></a>
@@ -47,7 +47,7 @@
  </nav>';
  include 'partials/_login.php';
  include 'partials/_signup.php';
- 
+
  
 
     // if user have successfuly signed up

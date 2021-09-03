@@ -32,7 +32,7 @@
                    $_SESSION['login'] = true;
                    $_SESSION['username'] = $username;
                    $_SESSION['userid'] = $id;
-                   header("Location:/ctrlbudget/thread.php?userid=$id");
+                   header("Location:/ctrlbudget/index.php");
                }
            }
 

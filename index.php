@@ -12,8 +12,11 @@
     <title>Hello, world!</title>
   </head>
   <body>
-  
-             <?php include 'partials/_navbar.php' ?>
+              
+             <?php
+              //  session_start();
+              include 'partials/_navbar.php'
+               ?>
                 <div class = "container-fluid pl-0 pr-0 pb-0 pt-5 bgimage" style = "height : 650px">
                      <center>
                        <div id = "content" class = "border border-success rounded-lg mt-5 text-white">
@@ -24,7 +27,17 @@
                         <br>
                         <br>
                         <br>
-                         <button class = "btn btn-success" data-bs-toggle="modal" data-bs-target="#loginModal">Start Today</button>
+                         <?php
+                            if(isset($_SESSION['login']) and $_SESSION['login'] == 'true'){
+                              echo '<a href = "thread.php"> <button class = "btn btn-success">Start Today</button></a>';
+                              
+                            }else{
+                             echo '<button class = "btn btn-success" data-bs-toggle="modal" data-bs-target="#loginModal">Start Today</button>';
+   
+                            }
+                        ?>
+
+                        
                        </div>
                      </center>
                  
