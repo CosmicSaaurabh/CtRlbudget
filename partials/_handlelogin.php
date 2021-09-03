@@ -23,6 +23,7 @@
            }else{
                
                $row = mysqli_fetch_assoc($result);
+               $id = $row['User_id'];
                if($password != $row['password']){
                      $showerror = "Please enter correct password";
                      header("Location:/ctrlbudget/index.php?loginsuccess=false&error=$showerror");
@@ -30,8 +31,8 @@
                    session_start();
                    $_SESSION['login'] = true;
                    $_SESSION['username'] = $username;
-                   
-                   header("Location:/ctrlbudget/index.php?loginsuccess=true");
+                   $_SESSION['userid'] = $id;
+                   header("Location:/ctrlbudget/thread.php?userid=$id");
                }
            }
 

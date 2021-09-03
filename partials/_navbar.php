@@ -48,8 +48,9 @@
  include 'partials/_login.php';
  include 'partials/_signup.php';
  
+ 
 
-    // if user have successfuly logged in
+    // if user have successfuly signed up
     if(isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == "true"){
           echo '<div class="alert alert-success alert-dismissible fade show m-0" role="alert">
           <strong>Holy guacamole!</strong> You have successfully signed up, Now you can login.
@@ -58,19 +59,19 @@
     }else if(isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == 'false'){
         $error = $_GET['error'];
       echo '<div class="alert alert-danger alert-dismissible fade show m-0" role="alert">
-      <strong>Error -> </strong>'.$error.'
+      <strong>Error: </strong>'.$error.'
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
     }
-    if(isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == "true"){
-      echo '<div class="alert alert-success alert-dismissible fade show m-0" role="alert">
-      <strong>Welcome! </strong>'.$_SESSION['username'].'
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>';
-}else if(isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == 'false'){
+
+    // checking login condition
+
+
+
+   if(isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == 'false'){
     $error = $_GET['error'];
   echo '<div class="alert alert-danger alert-dismissible fade show m-0" role="alert">
-  <strong>Error -> </strong>'.$error.'
+  <strong>Error: </strong>'.$error.'
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>';
 }
