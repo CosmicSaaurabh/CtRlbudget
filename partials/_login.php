@@ -14,14 +14,14 @@
       <div class="modal-body">
        
        <!-- login form -->
-      <form>
+      <form action = "partials/_handlelogin.php" method = "post">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username">
+                    <input type="text" class="form-control" id="username" name = "username">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" id="etPassword1" name = "password">
                 </div>
               
                 <button type="submit" class="btn btn-success">Submit</button>
