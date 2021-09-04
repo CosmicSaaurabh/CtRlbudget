@@ -17,7 +17,7 @@
               //  session_start();
               include 'partials/_navbar.php'
                ?>
-                <div class = "container-fluid pl-0 pr-0 pb-0 pt-5 bgimage" style = "height : 650px">
+                <div class = "container-fluid md-12 pl-0 pr-0 pb-0 pt-5 bgimage" style = "height : 650px">
                    
                      <center>
                        <div id = "content" class = "border border-success rounded-lg mt-5 text-white">

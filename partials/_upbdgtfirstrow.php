@@ -59,8 +59,13 @@
                             </div>
 
                             <ul class="list-group list-group-flush">
-                             <li class="list-group-item"><b>Total Amount: </b>'.$tamount.'</li>
-                             <li class="list-group-item"><b>Expended: </b>'.$remm.'</li>';
+                             <li class="list-group-item"><b>Total Amount: </b>'.$tamount.'</li>';
+                             if($remm <= $tamount){
+                                echo ' <li class="list-group-item text-success"><b>Expended: </b>'.$remm.'</li>';
+                             }else{
+                              echo ' <li class="list-group-item text-danger"><b>Expended: </b>'.$remm.'</li>';
+                             }
+                            
                                $nperson = $row2['nperson'];
                                $cnt = 1;
                                $vv = 0;

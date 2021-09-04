@@ -60,7 +60,11 @@
                        $bname = strtoupper($bname);
                        $tamount = $row['amount'];
                        $nperson = $row['nperson'];
-                       $remm = $row['remain'];
+                       $newsql = "SELECT `person1`, `person2`, `totol_person1`, `total_person2` FROM `personsdata` WHERE thread_id = '$bid'";
+                       $newresult = mysqli_query($conn,$newsql);
+                       $remm = 0;
+                       $newrow = mysqli_fetch_assoc($newresult);
+                       $remm = $newrow['totol_person1'] + $newrow['total_person2'];
                     //    echo $remm;
                        echo '<div class = "col-lg-4 my-3">
 
@@ -72,10 +76,15 @@
 
                                 <ul class="list-group list-group-flush">
                                   <li class="list-group-item"><b>Total Amount: </b>'.$tamount.'</li>
-                                  <li class="list-group-item"><b>Total Person: </b>'.$nperson.'</li>
+                                  <li class="list-group-item"><b>Total Person: </b>'.$nperson.'</li>';
+                                  if($remm <= $tamount){
+                                   echo'<li class="list-group-item text-success"><b>Expended: </b>'.$remm.'</li>';
+  
+                                  }else{
+                                    echo'<li class="list-group-item text-danger"><b>Expended: </b>'.$remm.'</li>';
+                                  }
                                   
-                                  <li class="list-group-item"><b>Expended: </b>'.$remm.'</li>
-                                </ul>
+                                echo'</ul>
 
                                 <div class="card-body">
                                   <a href="updatebudget.php?threadid='.$bid.'" class="card-link"><button class = "btn btn-success">Explore</button></a>
