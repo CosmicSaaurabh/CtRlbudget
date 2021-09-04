@@ -44,7 +44,7 @@
                    $numrows = mysqli_num_rows($result);
                 //    echo $numrows;
                 include 'addnewbudget.php';
-                echo '<div class = "col-lg-4x my-3">
+                echo '<div class = "col-lg-4 my-3">
                 <div class="card text-dark bg-warning" style="max-width: 18rem;">
                 <div class="card-header"><h4>Start a new budget</h4></div>
                 <div class="card-body">
@@ -56,6 +56,7 @@
                 </div>';
                    while($row = mysqli_fetch_assoc($result)){
                        $bname = $row['budgetname'];
+                       $bid = $row['bid'];
                        $bname = strtoupper($bname);
                        $tamount = $row['amount'];
                        $nperson = $row['nperson'];
@@ -63,27 +64,29 @@
                     //    echo $remm;
                        echo '<div class = "col-lg-4 my-3">
 
-                       <div class="card bg-secondary text-white" style="width: 18rem;">
+                              <div class="card bg-secondary text-white" style="width: 18rem;">
 
-                       <div class="card-body">
-                         <h5 class="card-title">'.$bname.'</h5>
-                       </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">'.$bname.'</h5>
+                                </div>
 
-                       <ul class="list-group list-group-flush">
-                         <li class="list-group-item"><b>Total Person: </b>'.$nperson.'</li>
-                         <li class="list-group-item"><b>Total Amount: </b>'.$tamount.'</li>
-                         <li class="list-group-item"><b>Expended: </b>'.$remm.'</li>
-                       </ul>
+                                <ul class="list-group list-group-flush">
+                                  <li class="list-group-item"><b>Total Amount: </b>'.$tamount.'</li>
+                                  <li class="list-group-item"><b>Total Person: </b>'.$nperson.'</li>
+                                  
+                                  <li class="list-group-item"><b>Expended: </b>'.$remm.'</li>
+                                </ul>
 
-                       <div class="card-body">
-                         <a href="#" class="card-link"><button class = "btn btn-success">Update</button></a>
-                         
-                       </div>
+                                <div class="card-body">
+                                  <a href="updatebudget.php?threadid='.$bid.'" class="card-link"><button class = "btn btn-success">Update</button></a>
+                                  <a href="#" class="card-link"><button class = "btn btn-success">Delete</button></a>
+                                  
+                                </div>
 
-                     </div>
+                              </div>
                      
 
-                     </div>';
+                            </div>';
                    }
                    
                    
