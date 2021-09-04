@@ -78,8 +78,8 @@
                                 </ul>
 
                                 <div class="card-body">
-                                  <a href="updatebudget.php?threadid='.$bid.'" class="card-link"><button class = "btn btn-success">Update</button></a>
-                                  <a href="#" class="card-link"><button class = "btn btn-success">Delete</button></a>
+                                  <a href="updatebudget.php?threadid='.$bid.'" class="card-link"><button class = "btn btn-success">Explore</button></a>
+                                  <a href="delete.php?threadid='.$bid.'" class="card-link"><button class = "btn btn-success">Delete</button></a>
                                   
                                 </div>
 
